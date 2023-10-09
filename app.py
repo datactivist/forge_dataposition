@@ -6,7 +6,7 @@ from streamlit_gsheets import GSheetsConnection
 # Create a connection object.
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-df = conn.read(worksheet="2147061722")
+df = conn.read()
 
 if st.button("New Worksheet"):
     conn.create(worksheet="Orders", data=[0,1])
