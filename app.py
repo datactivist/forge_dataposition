@@ -8,6 +8,4 @@ conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 df = conn.read()
 
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.id} has a :{row.nom}:")
+st.dataframe(df)
