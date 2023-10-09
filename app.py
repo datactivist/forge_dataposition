@@ -10,4 +10,4 @@ df = conn.read()
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.id} has a :{row.name}:")
+    st.write(f"{row.id} has a :{row.nom}:")
