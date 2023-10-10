@@ -17,44 +17,42 @@ st.dataframe(df)
 
 import streamlit as st
 
-# Titre de l'application
-st.title("Tableau Kanban avec Streamlit")
+# Title of the application
+st.title("Kanban Board with Streamlit")
 
-# Créez trois colonnes pour représenter les étapes du Kanban
-column1 = st.beta_container()
-column2 = st.beta_container()
-column3 = st.beta_container()
+# Create three columns for representing Kanban stages
+col1, col2, col3 = st.columns(3)
 
-# Créez des listes vides pour stocker les tâches dans chaque colonne
+# Create empty lists to store tasks in each column
 todo_list = []
 doing_list = []
 done_list = []
 
-# Widgets pour ajouter des tâches dans les colonnes
-with column1:
-    st.header("À faire")
-    new_task = st.text_input("Nouvelle tâche :")
-    if st.button("Ajouter"):
+# Widgets to add tasks to columns
+with col1:
+    st.header("To Do")
+    new_task = st.text_input("New Task:")
+    if st.button("Add"):
         if new_task:
             todo_list.append(new_task)
 
-with column2:
-    st.header("En cours")
+with col2:
+    st.header("Doing")
     for task in doing_list:
         st.write(f"- {task}")
 
-with column3:
-    st.header("Terminé")
+with col3:
+    st.header("Done")
     for task in done_list:
         st.write(f"- {task}")
 
-# Widgets pour déplacer des tâches entre les colonnes
-selected_task = st.selectbox("Sélectionnez une tâche à déplacer :", todo_list)
-if st.button("Déplacer vers 'En cours'"):
+# Widgets to move tasks between columns
+selected_task = st.selectbox("Select a task to move:", todo_list)
+if st.button("Move to 'Doing'"):
     if selected_task in todo_list:
         todo_list.remove(selected_task)
         doing_list.append(selected_task)
-elif st.button("Déplacer vers 'Terminé'"):
+elif st.button("Move to 'Done'"):
     if selected_task in doing_list:
         doing_list.remove(selected_task)
         done_list.append(selected_task)
