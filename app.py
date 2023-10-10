@@ -2,7 +2,6 @@
 import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
-from barfi import st_barfi, Block
 from streamlit_discourse import st_discourse
 
 
