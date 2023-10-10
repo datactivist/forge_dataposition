@@ -60,7 +60,4 @@ elif st.button("Move to 'Done'"):
 
 # https://discuss.streamlit.io/t/discourse-component/8061
 
-discourse_url = "discuss.streamlit.io"
-topic_id = 8061
-
-st_discourse(discourse_url, topic_id)
+st_discourse("discuss.streamlit.io", 8061)
