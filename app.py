@@ -3,6 +3,8 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 from barfi import st_barfi, Block
+from streamlit_discourse import st_discourse
+
 
 # Create a connection object.
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
@@ -56,3 +58,10 @@ elif st.button("Move to 'Done'"):
     if selected_task in doing_list:
         doing_list.remove(selected_task)
         done_list.append(selected_task)
+
+# https://discuss.streamlit.io/t/discourse-component/8061
+
+discourse_url = "discuss.streamlit.io"
+topic_id = 8061
+
+st_discourse(discourse_url, topic_id)
