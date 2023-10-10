@@ -30,19 +30,19 @@ done_list = []
 
 # Widgets to add tasks to columns
 with col1:
-    st.header("To Do")
+    st.header("Group1")
     new_task = st.text_input("New Task:")
     if st.button("Add"):
         if new_task:
             todo_list.append(new_task)
 
 with col2:
-    st.header("Doing")
+    st.header("Group2")
     for task in doing_list:
         st.write(f"- {task}")
 
 with col3:
-    st.header("Done")
+    st.header("Group3")
     for task in done_list:
         st.write(f"- {task}")
 
