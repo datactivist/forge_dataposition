@@ -5,11 +5,11 @@ from streamlit_gsheets import GSheetsConnection
 import hydralit_components as hc
 import datetime
 
-# Create a connection object.
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
-
 # Make it look nice from the start
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
+
+# Create a connection object.
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # Specify the primary menu definition
 menu_data = [
