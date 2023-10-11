@@ -15,6 +15,10 @@ menu_data = [
     {'icon': "far fa-copy", 'label': "Dispenser"},
 ]
 
+# Initialize session state
+if 'selected_tab' not in st.session_state:
+    st.session_state.selected_tab = "Colorizer"
+
 # Define the content for the tabs
 def colorizer_tab():
     st.title("Colorizer Tab")
