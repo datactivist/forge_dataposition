@@ -5,6 +5,9 @@ from streamlit_gsheets import GSheetsConnection
 import hydralit_components as hc
 import datetime
 
+# Create a connection object.
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+
 # Make it look nice from the start
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
 
@@ -20,9 +23,26 @@ if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
 
 # Define the content for the tabs
+
+# Define the content for the tabs
 def colorizer_tab():
     st.title("Colorizer Tab")
-    # Add content for the Colorizer tab here
+
+    st.write("Add Questions and Answers to Google Sheets")
+
+    # Input fields for questions, answers, scores, and values
+    question = st.text_input("Question")
+    answer = st.text_input("Possible Answer")
+    score = st.selectbox("Profile Score", [1, 2, 3, 4])
+    value = st.number_input("Value")
+
+    if st.button("Add to Google Sheets"):
+        add_to_google_sheets([question], [answer], [score], [value])
+        st.success("Data added to Google Sheets")
+
+def add_to_google_sheets(questions, answers, scores, values):
+    data_to_add = [questions, answers, scores, values]
+    conn.write(data=data_to_add)
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
