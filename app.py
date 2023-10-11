@@ -42,7 +42,7 @@ def colorizer_tab():
 
 def add_to_google_sheets(questions, answers, scores, values):
     data_to_add = [questions, answers, scores, values]
-    conn.write(data=data_to_add)
+    conn.create(data=data_to_add)
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
