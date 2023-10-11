@@ -2,6 +2,7 @@
 import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
+import hydralit_components as hc
 
 
 # Create a connection object.
