@@ -54,8 +54,6 @@ def colorizer_tab():
         st.dataframe(combined_df)
         conn.update(worksheet="Colorizer", data=combined_df)
         st.success("Data added to Google Sheets")
-        for key in st.session_state.keys():
-            del st.session_state[key]
 
         
         
