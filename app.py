@@ -31,7 +31,7 @@ def add_to_google_sheets(data):
     st.dataframe(existing_data)
 
     # Append the new data to the existing data
-    combined_df = pd.concat([existing_date, data], ignore_index=True)
+    combined_df = pd.concat([existing_data, data], ignore_index=True)
 
 
     # Update the Google Sheet with the combined data
