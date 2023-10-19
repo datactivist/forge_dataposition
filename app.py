@@ -56,7 +56,6 @@ def colorizer_tab():
         conn.update(worksheet="Colorizer", data=combined_df)
         st.success("Data added to Google Sheets")
         
-        
 
         
         
