@@ -21,27 +21,32 @@ menu_data = [
 # Initialize session state
 if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
-
-def add_to_google_sheets(data):
-    # Load the existing data from the Google Sheet
-    existing_data = conn.read(worksheet="Colorizer")
-    st.dataframe(combined_df)
     
-
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
+
+    if 'data' not in st.session_state:
+        st.session_state.data = {
+            'question': [],
+            'answer': [],
+            'score': []
+        }
 
     question = st.text_input("Question")
     answer = st.text_input("Possible Answer")
     score = st.selectbox("Profile Score", [1, 2, 3, 4])
 
     if st.button("Add to Google Sheets"):
-        data = {
-            'question': [question],
-            'answer': [answer],
-            'score': [score]
-        }
+        st.session_state.data['question'].append(question)
+        st.session_state.data['answer'].append(answer)
+        st.session_state.data['score'].append(score)
+        df = pd.DataFrame(st.session_state.data)
+        conn.update(worksheet="Colorizer", data=df)
+        st.session_state.data = {'question': [], 'answer': [], 'score': []}
+        st.success("Data added to Google Sheets")
+
+        
         
 
 def gatherizer_tab():
