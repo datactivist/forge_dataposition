@@ -47,7 +47,7 @@ def colorizer_tab():
 
 @st.cache(suppress_st_warning=True)
 def add_to_google_sheets(data):
-    df = pd.dataframe(data)
+    df = pd.Dataframe(data)
     conn.update(worksheet="Colorizer", data = df)
     st.cache_data_clear()
     
