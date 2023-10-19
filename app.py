@@ -28,7 +28,7 @@ if 'selected_tab' not in st.session_state:
 def add_to_google_sheets(data):
     # Load the existing data from the Google Sheet
     existing_data = conn.read(worksheet="Colorizer")
-    st.datadrame(existing_data)
+    st.dataframe(existing_data)
 
     # Append the new data to the existing data
     existing_data_list.append(data)
