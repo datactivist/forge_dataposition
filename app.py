@@ -40,7 +40,7 @@ def colorizer_tab():
         data = {
         'question': question,
         'answer': answer,
-        'score': socre
+        'score': score
         }
         
         df = pd.DataFrame(data)
