@@ -25,38 +25,45 @@ if 'selected_tab' not in st.session_state:
 # Define the content for the tabs
 
 # Define the content for the tabs
+def add_to_google_sheets(data):
+    # Load the existing data from the Google Sheet
+    existing_data = conn.read(worksheet="Colorizer")
+
+    # Convert the existing data to a list of dictionaries
+    existing_data_list = existing_data.to_dict(orient='records')
+
+    # Append the new data to the existing data
+    existing_data_list.append(data)
+
+    # Update the Google Sheet with the combined data
+    conn.update(worksheet="Colorizer", data=existing_data_list)
+
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
 
-    # Input fields for questions, answers, scores, and values
     question = st.text_input("Question")
     answer = st.text_input("Possible Answer")
     score = st.selectbox("Profile Score", [1, 2, 3, 4])
-    #value = st.number_input("Value")
 
     if st.button("Add to Google Sheets"):
         new_data = {
-        'question': [question],
-        'answer': [answer],
-        'score': [score]
+            'question': question,
+            'answer': answer,
+            'score': score
         }
+        
+        # Use the add_to_google_sheets function to append the new data to existing data
         add_to_google_sheets(new_data)
-        st.success("Data added")
 
-def add_to_google_sheets(data):
-    # Load the existing data from the Google Sheet
-    existing_data = conn.read(worksheet="Colorizer")
-    # Convert the existing data to a DataFrame
-    existing_df = pd.DataFrame(existing_data)
-    # Convert the new data to a DataFrame
-    new_df = pd.DataFrame(data)
-    
-    # Concatenate the existing and new data along the rows (axis=0)
-    combined_df = pd.concat([existing_df, new_df], axis=0)
-    
-    # Update the Google Sheet with the combined data
-    conn.update(worksheet="Colorizer", data=combined_df)
+        st.success("Data added to Google Sheets")
+
+        # Optional: Clear the input fields after adding the data
+        st.text_input("Question", value="")
+        st.text_input("Possible Answer", value="")
+        st.selectbox("Profile Score", [1, 2, 3, 4])
+
+
     
 
 def gatherizer_tab():
