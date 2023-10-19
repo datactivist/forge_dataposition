@@ -51,6 +51,8 @@ def add_to_google_sheets(data):
     existing_df = pd.DataFrame(existing_data)
     # Convert the new data to a DataFrame
     new_df = pd.DataFrame(data)
+    # Reset the index of the new data to avoid index conflicts
+    new_df = new_df.reset_index(drop=True)
     # Concatenate the existing and new data
     combined_df = pd.concat([existing_df, new_df], ignore_index=True)
     # Update the Google Sheet with the combined data
