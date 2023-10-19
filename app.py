@@ -46,11 +46,9 @@ def colorizer_tab():
         st.experimental_rerun()
         st.success("Data added")
 
-@st.cache(suppress_st_warning=True)
 def add_to_google_sheets(data):
     df = pd.DataFrame(data)
     conn.update(worksheet="Colorizer", data = df)
-    st.cache_data_clear()
     
 
 def gatherizer_tab():
