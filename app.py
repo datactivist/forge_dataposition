@@ -40,9 +40,9 @@ def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
 
-    question = st.text_input("Question")
-    answer = st.text_input("Possible Answer")
-    score = st.selectbox("Profile Score", [1, 2, 3, 4])
+    question = st.text_input("Question", key=1)
+    answer = st.text_input("Possible Answer", key=2)
+    score = st.selectbox("Profile Score", [1, 2, 3, 4], key=3)
 
     if st.button("Add to Google Sheets"):
         data = {
