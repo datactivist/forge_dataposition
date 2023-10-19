@@ -43,8 +43,8 @@ def colorizer_tab():
         'score': score
         }
         
-        df = pd.DataFrame(data)
-        conn.update(worsheet="Colorizer", data = df, index = [1,2,3])
+        df = pd.DataFrame(data, index = [1,2,3])
+        conn.update(worsheet="Colorizer", data = df)
         #add_to_google_sheets([question], [answer], [score], [value])
         #st.success("Data added to Google Sheets")
 
