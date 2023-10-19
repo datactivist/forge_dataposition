@@ -46,6 +46,7 @@ def colorizer_tab():
         existing_df = pd.DataFrame(existing_data)
         new_df = pd.DataFrame(st.session_state.data)
         combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+        st.dataframe(combined_df)
         conn.update(worksheet="Colorizer", data=combined_df)
         st.session_state.data = {'question': [], 'answer': [], 'score': []}
         st.success("Data added to Google Sheets")
