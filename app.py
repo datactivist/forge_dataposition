@@ -55,12 +55,7 @@ def colorizer_tab():
         st.dataframe(combined_df)
         conn.update(worksheet="Colorizer", data=combined_df)
         st.success("Data added to Google Sheets")
-        st.session_state.data = {
-            'question': [],
-            'answer': [],
-            'score': []
-        }
-        
+ 
 
         
         
