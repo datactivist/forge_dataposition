@@ -38,9 +38,9 @@ def colorizer_tab():
 
     if st.button("Add to Google Sheets"):
         data = {
-        'question': question,
-        'answer': answer,
-        'score': score
+        'question': [question],
+        'answer': [answer],
+        'score': [score]
         }
         
         df = pd.DataFrame(data, index = range(len(data)))
