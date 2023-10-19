@@ -47,7 +47,7 @@ def colorizer_tab():
 
 def add_to_google_sheets(data):
     # Load the existing data from the Google Sheet
-    existing_data = conn.get(worksheet="Colorizer")
+    existing_data = conn.read(worksheet="Colorizer")
     # Convert the existing data to a DataFrame
     existing_df = pd.DataFrame(existing_data)
     # Convert the new data to a DataFrame
