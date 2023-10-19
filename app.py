@@ -43,8 +43,7 @@ def colorizer_tab():
         'score': score
         }
         
-        df = pd.DataFrame(data)
-        df = df.set_index('question')
+        df = pd.DataFrame(data, index = [0,1])
         df = conn.update(worksheet="Colorizer", data = df)
         st.cache_data.clear()
         st.rerun()
