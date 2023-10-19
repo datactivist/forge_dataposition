@@ -43,6 +43,7 @@ def colorizer_tab():
         'score': [score]
         }
         add_to_google_sheets(data)
+        st.experimental_rerun()
         st.success("Data added")
 
 @st.cache(suppress_st_warning=True)
