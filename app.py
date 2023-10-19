@@ -46,7 +46,7 @@ def colorizer_tab():
         df = pd.DataFrame(data)
         df = conn.update(worksheet="Colorizer", data = df)
         st.cache_data.clear()
-        st.experimental_rerun()
+        st.rerun()
         #add_to_google_sheets([question], [answer], [score], [value])
         #st.success("Data added to Google Sheets")
 
