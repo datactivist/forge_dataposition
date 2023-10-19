@@ -21,7 +21,8 @@ menu_data = [
 # Initialize session state
 if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
-    
+
+
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
@@ -54,6 +55,8 @@ def colorizer_tab():
         st.dataframe(combined_df)
         conn.update(worksheet="Colorizer", data=combined_df)
         st.success("Data added to Google Sheets")
+        st.session_state.clear()
+        
 
         
         
