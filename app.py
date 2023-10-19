@@ -38,21 +38,19 @@ def colorizer_tab():
 
     if st.button("Add to Google Sheets"):
         data = {
-        'question': question,
-        'answer': answer,
-        'score': score
+        'question': [question],
+        'answer': [answer],
+        'score': [score]
         }
-        
-        df = pd.DataFrame(data, index = [0,1])
-        df = conn.update(worksheet="Colorizer", data = df)
-        st.cache_data.clear()
-        st.rerun()
-        #add_to_google_sheets([question], [answer], [score], [value])
-        #st.success("Data added to Google Sheets")
+        add_to_google_sheets(data)
+        st.success("Data added")
 
-#def add_to_google_sheets(questions, answers, scores, values):
-    #data_to_add = [questions, answers, scores, values]
-    #conn.update(worksheet="Colorizer",data=data_to_add)
+@st.cache(suppress_st_warning=True)
+def add_to_google_sheets(data):
+    df = pd.dataframe(data)
+    conn.update(worksheet="Colorizer", data = df)
+    st.cache_data_clear()
+    
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
