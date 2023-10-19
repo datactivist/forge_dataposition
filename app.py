@@ -21,26 +21,20 @@ menu_data = [
 # Initialize session state
 if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
+
 def add_to_google_sheets(data):
     # Load the existing data from the Google Sheet
     existing_data = conn.read(worksheet="Colorizer")
-    
-    # Append the new data to the existing data while preserving the index
-    combined_df = pd.concat([existing_data, data])
-
-    # Update the Google Sheet with the combined data
-    conn.update(worksheet="Colorizer", data=combined_df)
-    
-    # Optional: Display the combined data in Streamlit
     st.dataframe(combined_df)
+    
 
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
 
-    question = st.text_input("Question", key=1)
-    answer = st.text_input("Possible Answer", key=2)
-    score = st.selectbox("Profile Score", [1, 2, 3, 4], key=3)
+    question = st.text_input("Question")
+    answer = st.text_input("Possible Answer")
+    score = st.selectbox("Profile Score", [1, 2, 3, 4])
 
     if st.button("Add to Google Sheets"):
         data = {
@@ -49,25 +43,6 @@ def colorizer_tab():
             'score': [score]
         }
         
-        # Convert the new data to a DataFrame with an explicit index
-        new_data_df = pd.DataFrame(data, index=[len(existing_data)])
-        
-        # Use the add_to_google_sheets function to append the new data to existing data
-        add_to_google_sheets(new_data_df)
-
-        st.success("Data added to Google Sheets")
-
-        # Optional: Clear the input fields after adding the data
-        st.text_input("Question", value="")
-        st.text_input("Possible Answer", value="")
-        st.selectbox("Profile Score", [1, 2, 3, 4])
-
-
-
-
-
-
-    
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
