@@ -38,6 +38,9 @@ def add_to_google_sheets(data):
     # Update the Google Sheet with the combined data
     conn.update(worksheet="Colorizer", data=combined_df)
 
+    # Optional: Display the combined data in Streamlit
+    st.dataframe(combined_df)
+
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
@@ -48,12 +51,12 @@ def colorizer_tab():
 
     if st.button("Add to Google Sheets"):
         data = {
-            'question': question,
-            'answer': answer,
-            'score': score
+            'question': [question],
+            'answer': [answer],
+            'score': [score]
         }
         
-        new_data_df = pd.DataFrame(data)
+        new_data_df = pd.DataFrame(data, index=[len(existing_data)])
         # Use the add_to_google_sheets function to append the new data to existing data
         add_to_google_sheets(new_data_df)
 
