@@ -34,7 +34,7 @@ def add_to_google_sheets(data):
     existing_data.append(data)
 
     # Update the Google Sheet with the combined data
-    conn.update(worksheet="Colorizer", data=existing_data_list)
+    conn.update(worksheet="Colorizer", data=existing_data)
 
 def colorizer_tab():
     st.title("Colorizer Tab")
