@@ -21,10 +21,12 @@ menu_data = [
 # Initialize session state
 if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
-
-def add_to_google_sheets(existing_data, new_data):
+def add_to_google_sheets(data):
+    # Load the existing data from the Google Sheet
+    existing_data = conn.read(worksheet="Colorizer")
+    
     # Append the new data to the existing data while preserving the index
-    combined_df = pd.concat([existing_data, new_data])
+    combined_df = pd.concat([existing_data, data])
 
     # Update the Google Sheet with the combined data
     conn.update(worksheet="Colorizer", data=combined_df)
@@ -32,7 +34,7 @@ def add_to_google_sheets(existing_data, new_data):
     # Optional: Display the combined data in Streamlit
     st.dataframe(combined_df)
 
-def colorizer_tab(existing_data):
+def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
 
@@ -51,7 +53,7 @@ def colorizer_tab(existing_data):
         new_data_df = pd.DataFrame(data, index=[len(existing_data)])
         
         # Use the add_to_google_sheets function to append the new data to existing data
-        add_to_google_sheets(existing_data, new_data_df)
+        add_to_google_sheets(new_data_df)
 
         st.success("Data added to Google Sheets")
 
@@ -60,11 +62,8 @@ def colorizer_tab(existing_data):
         st.text_input("Possible Answer", value="")
         st.selectbox("Profile Score", [1, 2, 3, 4])
 
-# Load the existing data before entering the tab
-existing_data = conn.read(worksheet="Colorizer")
 
-# Create the tab with existing data
-colorizer_tab(existing_data)
+
 
 
 
