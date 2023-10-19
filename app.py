@@ -31,7 +31,7 @@ def add_to_google_sheets(data):
     st.dataframe(existing_data)
 
     # Append the new data to the existing data
-    existing_data_list.append(data)
+    existing_data.append(data)
 
     # Update the Google Sheet with the combined data
     conn.update(worksheet="Colorizer", data=existing_data_list)
