@@ -51,10 +51,10 @@ def add_to_google_sheets(data):
     existing_df = pd.DataFrame(existing_data)
     # Convert the new data to a DataFrame
     new_df = pd.DataFrame(data)
-    # Reset the index of the new data to avoid index conflicts
-    new_df = new_df.reset_index(drop=True)
-    # Concatenate the existing and new data
-    combined_df = existing_df.append(new_df, ignore_index=True)
+    
+    # Concatenate the existing and new data along the rows (axis=0)
+    combined_df = pd.concat([existing_df, new_df], axis=0)
+    
     # Update the Google Sheet with the combined data
     conn.update(worksheet="Colorizer", data=combined_df)
     
