@@ -27,7 +27,6 @@ if 'selected_tab' not in st.session_state:
 # Define the content for the tabs
 def colorizer_tab():
     st.title("Colorizer Tab")
-
     st.write("Add Questions and Answers to Google Sheets")
 
     # Input fields for questions, answers, scores, and values
@@ -37,16 +36,27 @@ def colorizer_tab():
     #value = st.number_input("Value")
 
     if st.button("Add to Google Sheets"):
-        data = {
+        new_data = {
         'question': [question],
         'answer': [answer],
         'score': [score]
         }
-        add_to_google_sheets(data)
+        add_to_google_sheets(new_data)
         st.rerun()
         st.success("Data added")
 
 def add_to_google_sheets(data):
+    # Load the existing data from the Google Sheet
+    existing_data = conn.get(worksheet="Colorizer")
+    # Convert the existing data to a DataFrame
+    existing_df = pd.DataFrame(existing_data)
+    # Convert the new data to a DataFrame
+    new_df = pd.DataFrame(data)
+    # Concatenate the existing and new data
+    combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+    # Update the Google Sheet with the combined data
+    conn.update(worksheet="Colorizer", data=combined_df)
+    
     df = pd.DataFrame(data)
     conn.update(worksheet="Colorizer", data = df)
     
