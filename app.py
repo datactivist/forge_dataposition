@@ -58,9 +58,6 @@ def add_to_google_sheets(data):
     # Update the Google Sheet with the combined data
     conn.update(worksheet="Colorizer", data=combined_df)
     
-    df = pd.DataFrame(data)
-    conn.update(worksheet="Colorizer", data = df)
-    
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
