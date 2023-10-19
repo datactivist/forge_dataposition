@@ -34,7 +34,7 @@ def colorizer_tab():
     question = st.text_input("Question")
     answer = st.text_input("Possible Answer")
     score = st.selectbox("Profile Score", [1, 2, 3, 4])
-    value = st.number_input("Value")
+    #value = st.number_input("Value")
 
     if st.button("Add to Google Sheets"):
         data = {
@@ -43,7 +43,7 @@ def colorizer_tab():
         'score': score
         }
         
-        df = pd.DataFrame(data, index = [1])
+        df = pd.DataFrame(data, index = range(1, len(question)+1))
         df = conn.update(worksheet="Colorizer", data = df)
         st.cache_data.clear()
         st.rerun()
