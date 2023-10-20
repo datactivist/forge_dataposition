@@ -68,6 +68,7 @@ def colorizer_tab():
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
+    st.markdown("Hello")
     # Add content for the Gatherizer tab here
 
 def dispenser_tab():
