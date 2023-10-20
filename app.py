@@ -109,7 +109,7 @@ def display_tab_content(tab_label):
 # Create the navigation bar
 menu_id = hc.nav_bar(
     menu_definition=menu_data,
-    home_name='Home',
+    #home_name='Home',
     login_name='Logout',
     hide_streamlit_markers=False,
     sticky_nav=True,
