@@ -88,7 +88,7 @@ def gatherizer_tab():
         df_answers = df_answers.append(df, ignore_index=True)
 
         st.dataframe(df)
-        conn.update(worksheet="Gatherizer", data=df)
+        conn.update(worksheet="Gatherizer", data=df_answers)
     # Now, outside the loop, you can display the complete df_answers DataFrame
     st.dataframe(df_answers)
     
