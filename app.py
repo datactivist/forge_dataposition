@@ -79,6 +79,7 @@ def gatherizer_tab():
     for question in unique_questions:
         st.write(question)
         answer = st.selectbox("Answers", question_df[question_df.question == question].answer)
+        conn.update(worksheet="Gatherizer", data=answer)
 
 def dispenser_tab():
     st.title("Dispenser Tab")
