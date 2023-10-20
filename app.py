@@ -64,7 +64,7 @@ def colorizer_tab():
 
 
 def gatherizer_tab():
-    st.image('resource/logo_forge.png', width=300)
+    st.image('resource/logo_forge.png', width=500)
     st.title("Gatherizer Tab")
     st.markdown("Gatherizer Tab")
     #create an empty dataframe
