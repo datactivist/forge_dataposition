@@ -69,6 +69,9 @@ def colorizer_tab():
 def gatherizer_tab():
     st.title("Gatherizer Tab")
     st.markdown("Hello")
+    nom = st.text_input("Nom")
+    prenom = st.text_input("Prenom")
+    mail = st.text_input("Mail")
     # Add content for the Gatherizer tab here
 
 def dispenser_tab():
