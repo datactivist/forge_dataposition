@@ -78,7 +78,7 @@ def gatherizer_tab():
     unique_questions = question_df.question.unique()
     
     for question_people in unique_questions:
-        st.write(question)
+        st.write(question_people)
         answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer)
         df = pd.DataFrame({'question': [question_people], 'answer': [answer_people]})
         st.dataframe(df)
