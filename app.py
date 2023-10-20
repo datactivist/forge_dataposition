@@ -85,7 +85,7 @@ def gatherizer_tab():
         
     
     if st.button("Add to Google Sheets"):
-        conn.update(worksheet="Gatherizer", data=answer)
+        conn.update(worksheet="Gatherizer", data=answer_people)
     
 
 def dispenser_tab():
