@@ -81,7 +81,7 @@ def gatherizer_tab():
         st.write(question_people)
         answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer)
         score = question_df[question_df.answer == answer_people].score
-        df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people]})
+        df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people],'score': [score]})
         st.dataframe(df)
         conn.update(worksheet="Gatherizer", data=df)
     
