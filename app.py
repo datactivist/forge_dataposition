@@ -76,10 +76,15 @@ def gatherizer_tab():
     question_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
     question_df = pd.DataFrame(question_data)
     unique_questions = question_df.question.unique()
+    
     for question in unique_questions:
         st.write(question)
         answer = st.selectbox("Answers", question_df[question_df.question == question].answer)
+        
+    
+    if st.button("Add to Google Sheets"):
         conn.update(worksheet="Gatherizer", data=answer)
+    
 
 def dispenser_tab():
     st.title("Dispenser Tab")
