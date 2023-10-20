@@ -65,7 +65,7 @@ def colorizer_tab():
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
-    st.markdown("Hello")
+    st.markdown("[Gatherizer Tab](#gatherizer-tab)")
     #create an empty dataframe
     df_answers = pd.DataFrame(columns=['nom', 'prenom', 'mail', 'question', 'answer', 'score'])
     # Add content for the form
