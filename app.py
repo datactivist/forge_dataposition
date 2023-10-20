@@ -61,10 +61,7 @@ def colorizer_tab():
             'score': []
         }
 
- 
 
-        
-        
 
 def gatherizer_tab():
     st.title("Gatherizer Tab")
@@ -87,9 +84,13 @@ def gatherizer_tab():
         answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer)
         score = question_df[question_df.answer == answer_people].score.values
         df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people],'score': score})
-        df_answers = df_answers.append({'question': question_people, 'answer': answer_people, 'score': score}, ignore_index=True)
+        # Append the data to the df_answers DataFrame
+        df_answers = df_answers.append(df, ignore_index=True)
+
         st.dataframe(df)
         conn.update(worksheet="Gatherizer", data=df)
+    # Now, outside the loop, you can display the complete df_answers DataFrame
+    st.dataframe(df_answers)
     
 
 def dispenser_tab():
