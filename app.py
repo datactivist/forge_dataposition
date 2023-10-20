@@ -13,8 +13,8 @@ conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # Specify the primary menu definition
 menu_data = [
-    {'icon': "far fa-copy", 'label': "Colorizer"},
     {'icon': "far fa-copy", 'label': "Gatherizer"},
+    {'icon': "far fa-copy", 'label': "Colorizer"},
     {'icon': "far fa-copy", 'label': "Dispenser"},
 ]
 
