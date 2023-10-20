@@ -78,6 +78,7 @@ def gatherizer_tab():
     unique_questions = question_df.question.unique()
     for question in unique_questions:
         st.text_input(question)
+        st.selectbox("Answers", combined_df[combined_df.question == question].answer)
 
 def dispenser_tab():
     st.title("Dispenser Tab")
