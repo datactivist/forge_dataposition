@@ -72,7 +72,10 @@ def gatherizer_tab():
     nom = st.text_input("Nom")
     prenom = st.text_input("Prenom")
     mail = st.text_input("Mail")
-    # Add content for the Gatherizer tab here
+    # Add content for the form
+    unique_questions = combined_df.question.unique()
+    for question in unique_questions:
+        st.text_input(question)
 
 def dispenser_tab():
     st.title("Dispenser Tab")
