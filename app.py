@@ -82,10 +82,7 @@ def gatherizer_tab():
         answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer)
         df = pd.DataFrame({'question': [question_people], 'answer': [answer_people]})
         st.dataframe(df)
-        
-    
-    if st.button("Add to Google Sheets"):
-        conn.update(worksheet="Gatherizer", data=answer_people)
+        conn.update(worksheet="Gatherizer", data=df)
     
 
 def dispenser_tab():
