@@ -105,10 +105,12 @@ def display_tab_content(tab_label):
         gatherizer_tab()
     elif tab_label == "Dispenser":
         dispenser_tab()
-
+#
+over_theme = {'txc_inactive': '#e95459'}
 # Create the navigation bar
 menu_id = hc.nav_bar(
     menu_definition=menu_data,
+    override_theme=over_theme,
     #home_name='Home',
     login_name='Logout',
     hide_streamlit_markers=False,
