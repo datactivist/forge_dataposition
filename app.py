@@ -95,7 +95,7 @@ menu_id = hc.nav_bar(
 )
 
 # Get the selected tab label from the menu
-selected_tab_label = st.session_state.get('selected_tab', 'Colorizer')
+selected_tab_label = st.session_state.get('selected_tab')
 
 # Display the selected tab content
 display_tab_content(selected_tab_label)
