@@ -73,7 +73,9 @@ def gatherizer_tab():
     prenom = st.text_input("Prenom")
     mail = st.text_input("Mail")
     # Add content for the form
-    unique_questions = combined_df.question.unique()
+    question_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
+    question_df = pd.DataFrame(question_data)
+    unique_questions = question_df.question.unique()
     for question in unique_questions:
         st.text_input(question)
 
