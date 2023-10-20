@@ -106,7 +106,7 @@ def display_tab_content(tab_label):
     elif tab_label == "Dispenser":
         dispenser_tab()
 #
-over_theme = {'txc_inactive': 'white','menu_background':'#1c3f4b','txc_active':'white','option_active':'#e95459'}
+over_theme = {'txc_inactive': 'white','menu_background':'#1c3f4b','txc_active':'#e95459','option_active':''}
 # Create the navigation bar
 menu_id = hc.nav_bar(
     menu_definition=menu_data,
