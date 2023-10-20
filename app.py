@@ -80,6 +80,8 @@ def gatherizer_tab():
     for question in unique_questions:
         st.write(question)
         answer = st.selectbox("Answers", question_df[question_df.question == question].answer)
+        df = pd.DataFrame({'question': [question], 'answer': [answer]})
+        st.dataframe(df)
         
     
     if st.button("Add to Google Sheets"):
