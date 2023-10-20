@@ -112,6 +112,7 @@ if selected_tab_label != st.session_state.selected_tab:
 
 # Get the id of the menu item clicked
 st.info(f"Selected tab: {selected_tab_label}")
+st.info(f"Menu {menu_id}")
 
 #display the content of st.session_state
 st.write(st.session_state)
