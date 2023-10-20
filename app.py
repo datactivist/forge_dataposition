@@ -77,7 +77,7 @@ def gatherizer_tab():
     question_df = pd.DataFrame(question_data)
     unique_questions = question_df.question.unique()
     for question in unique_questions:
-        st.display(question)
+        st.write(question)
         st.selectbox("Answers", question_df[question_df.question == question].answer)
 
 def dispenser_tab():
