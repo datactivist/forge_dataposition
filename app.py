@@ -69,18 +69,18 @@ def colorizer_tab():
 def gatherizer_tab():
     st.title("Gatherizer Tab")
     st.markdown("Hello")
-    nom = st.text_input("Nom")
-    prenom = st.text_input("Prenom")
-    mail = st.text_input("Mail")
     # Add content for the form
     question_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
     question_df = pd.DataFrame(question_data)
     unique_questions = question_df.question.unique()
     
     for question_people in unique_questions:
+        nom = st.text_input("Nom")
+        prenom = st.text_input("Prenom")
+        mail = st.text_input("Mail")
         st.write(question_people)
         answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer)
-        df = pd.DataFrame({'question': [question_people], 'answer': [answer_people]})
+        df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people]})
         st.dataframe(df)
         conn.update(worksheet="Gatherizer", data=df)
     
