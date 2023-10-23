@@ -73,12 +73,15 @@ def colorizer_tab():
         value = streamlit_image_coordinates("https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&fit=crop&q=80&w=300")
         new_x_values = [x for x in value['x'] if x not in st.session_state.data['x']]
 
-        for x in new_x_values:
-            text_input = st.text_input(f"Text for x={x}")
-            st.session_state.data['x'].append(x)
-            st.session_state.data['y'].append(value['y'][value['x'].index(x)])  # Corresponding 'y' value
-            st.session_state.data['label'].append("Label for x={}".format(x))  # Add a label
-            st.session_state.data['text_inputs'].append(text_input)
+        if isinstance(value['x'], list):  # Check if 'x' is a list
+            new_x_values = [x for x in value['x'] if x not in st.session_state.data['x']]
+
+            for x in new_x_values:
+                text_input = st.text_input(f"Text for x={x}")
+                st.session_state.data['x'].append(x)
+                st.session_state.data['y'].append(value['y'][value['x'].index(x)])  # Corresponding 'y' value
+                st.session_state.data['label'].append("Label for x={}".format(x))  # Add a label
+                st.session_state.data['text_inputs'].append(text_input)
     
         st.write("List of Text Inputs:")
         st.write(st.session_state.data['text_inputs'])
