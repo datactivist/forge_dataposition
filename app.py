@@ -69,6 +69,7 @@ def colorizer_tab():
     with col2:
         value = streamlit_image_coordinates("https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&fit=crop&q=80&w=300")
         if value:
+            st.write(value.keys())
             st.write(value)
             st.write(type(value))
             profile = st.text_input("Text")
