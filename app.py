@@ -67,6 +67,7 @@ def colorizer_tab():
             }
     
     with col2:
+        st.markdown("hello")
         clicked = clickable_images(
             [
                 "resource/position1.png",
