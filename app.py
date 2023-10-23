@@ -29,16 +29,19 @@ def colorizer_tab():
     st.write("Add Questions and Answers to Google Sheets")
 
     col1, col2 = st.columns(2)
-    
+
+    if 'data' not in st.session_state:
+    st.session_state.data = {
+        'question': [],
+        'answer': [],
+        'score': [],
+        'x': [],
+        'y': [],
+        'label': [],
+        'text_inputs': []
+    }
 
     with col1:
-        if 'data' not in st.session_state:
-            st.session_state.data = {
-                'question': [],
-                'answer': [],
-                'score': []
-            }
-
         question = st.text_input("Question")
         answer = st.text_input("Possible Answer")
         score = st.selectbox("Profile Score", [1, 2, 3, 4])
