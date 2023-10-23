@@ -70,32 +70,12 @@ def colorizer_tab():
         clicked = clickable_images(
             [
                 "https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&w=1000",
-
             ],
-            #set a variable that counts the number of clicked images
-            clicked = st.session_state.clicked
-            #count the number of clicked images
-            if not "clicked" in st.session_state:
-                st.session_state.clicked = 0
-            else:
-                st.session_state.clicked += 1
-            
             #titles equals the number of clicked images
-            titles = [f"Profile #{i}" for i in range(st.session_state.clicked)]
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-            img_style={"margin": "5px", "height": "400px"},
+            img_style={"margin": "5px", "height": "400px"}
         )
-        if clicked > -1:
-            st.markdown(f"Profile #{clicked} is : ")
-            st.text_input("Enter the profile name")
-            st.text_input("Enter the profile description")
-            st.text_input("Enter the profile image")
-            st.text_input("Enter the profile link")
-            st.text_input("Enter the profile tags")
-
         
-
-
 
 def gatherizer_tab():
     st.image('resource/logo_forge.png', width=400, use_column_width=True)
