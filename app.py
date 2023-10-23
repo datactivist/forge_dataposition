@@ -69,10 +69,10 @@ def colorizer_tab():
     with col2:
         clicked = clickable_images(
             [
-                "https://storyset.com/illustration/team-work/bro",
-                "https://storyset.com/illustration/team-work/amico",
-                "https://storyset.com/illustration/team-work/cuate",
-                "https://storyset.com/illustration/good-team/rafiki"
+                "resource/position1.png",
+                "resource/position2.png",
+                "resource/position3.png",
+                "resource/position4.png"
             ],
             titles=[f"Image #{str(i)}" for i in range(5)],
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
