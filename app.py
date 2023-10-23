@@ -74,7 +74,7 @@ def colorizer_tab():
             ],
             titles=[f"Image #{str(i)}" for i in range(5)],
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-            img_style={"margin": "5px", "height": "600px"},
+            img_style={"margin": "5px", "height": "400px"},
         )
         st.markdown(f"Image #{clicked} clicked" if clicked > -1 else "No image clicked")
 
