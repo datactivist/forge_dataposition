@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import hydralit_components as hc
 import datetime
+from st_clickable_images import clickable_images
 
 # Make it look nice from the start
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
@@ -27,39 +28,57 @@ def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
 
-    if 'data' not in st.session_state:
-        st.session_state.data = {
-            'question': [],
-            'answer': [],
-            'score': []
-        }
+    col1, col2 = st.columns(2)
+    
 
-    question = st.text_input("Question")
-    answer = st.text_input("Possible Answer")
-    score = st.selectbox("Profile Score", [1, 2, 3, 4])
+    with col1:
+        if 'data' not in st.session_state:
+            st.session_state.data = {
+                'question': [],
+                'answer': [],
+                'score': []
+            }
 
-    if st.button("Add to Google Sheets"):
-        st.session_state.data['question'].append(question)
-        st.session_state.data['answer'].append(answer)
-        st.session_state.data['score'].append(score)
-        # Combine the existing data from Google Sheets and new data
-        existing_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
-        existing_df = pd.DataFrame(existing_data)
-        st.write("Existing Data:")
-        st.dataframe(existing_df)
-        new_df = pd.DataFrame(st.session_state.data)
-        st.write("New Data:")
-        st.dataframe(new_df)
-        combined_df = pd.concat([existing_df, new_df], ignore_index=True)
-        st.write("Combined Data:")
-        st.dataframe(combined_df)
-        conn.update(worksheet="Colorizer", data=combined_df)
-        st.success("Data added to Google Sheets")
-        st.session_state.data = {
-            'question': [],
-            'answer': [],
-            'score': []
-        }
+        question = st.text_input("Question")
+        answer = st.text_input("Possible Answer")
+        score = st.selectbox("Profile Score", [1, 2, 3, 4])
+
+        if st.button("Add to Google Sheets"):
+            st.session_state.data['question'].append(question)
+            st.session_state.data['answer'].append(answer)
+            st.session_state.data['score'].append(score)
+            # Combine the existing data from Google Sheets and new data
+            existing_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
+            existing_df = pd.DataFrame(existing_data)
+            st.write("Existing Data:")
+            st.dataframe(existing_df)
+            new_df = pd.DataFrame(st.session_state.data)
+            st.write("New Data:")
+            st.dataframe(new_df)
+            combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+            st.write("Combined Data:")
+            st.dataframe(combined_df)
+            conn.update(worksheet="Colorizer", data=combined_df)
+            st.success("Data added to Google Sheets")
+            st.session_state.data = {
+                'question': [],
+                'answer': [],
+                'score': []
+            }
+    
+    with col2:
+        clicked = clickable_images(
+            [
+                "https://storyset.com/illustration/team-work/bro",
+                "https://storyset.com/illustration/team-work/amico",
+                "https://storyset.com/illustration/team-work/cuate",
+                "https://storyset.com/illustration/good-team/rafiki"
+            ],
+            titles=[f"Image #{str(i)}" for i in range(5)],
+            div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+            img_style={"margin": "5px", "height": "200px"}
+        )
+        
 
 
 
