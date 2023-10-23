@@ -31,15 +31,15 @@ def colorizer_tab():
     col1, col2 = st.columns(2)
 
     if 'data' not in st.session_state:
-    st.session_state.data = {
-        'question': [],
-        'answer': [],
-        'score': [],
-        'x': [],
-        'y': [],
-        'label': [],
-        'text_inputs': []
-    }
+        st.session_state.data = {
+            'question': [],
+            'answer': [],
+            'score': [],
+            'x': [],
+            'y': [],
+            'label': [],
+            'text_inputs': []
+        }
 
     with col1:
         question = st.text_input("Question")
