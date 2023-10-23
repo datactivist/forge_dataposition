@@ -4,7 +4,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import hydralit_components as hc
 import datetime
-from st_clickable_images import clickable_images
+from streamlit_image_coordinates import streamlit_image_coordinates
 
 # Make it look nice from the start
 st.set_page_config(layout='wide', initial_sidebar_state='collapsed')
@@ -67,14 +67,9 @@ def colorizer_tab():
             }
     
     with col2:
-        clicked = clickable_images(
-            [
-                "https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&w=1000",
-            ],
-            #titles equals the number of clicked images
-            div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-            img_style={"margin": "5px", "height": "400px"}
-        )
+        value = streamlit_image_coordinates("https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&fit=crop&q=80&w=2380")
+
+st.write(value)
         
 
 def gatherizer_tab():
