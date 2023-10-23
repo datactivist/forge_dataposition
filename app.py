@@ -69,7 +69,7 @@ def colorizer_tab():
     with col2:
         clicked = clickable_images(
             [
-                "https://unsplash.com/fr/photos/un-objet-circulaire-avec-un-fond-noir-NeW4-27HUdY?w=300",
+                "https://images.unsplash.com/photo-1659982182055-1a98e49534c7?auto=format&fit=crop&q=80&w=2000",
                 "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=300"
             ],
             titles=[f"Image #{str(i)}" for i in range(5)],
