@@ -70,12 +70,6 @@ def colorizer_tab():
             }
     
     with col2:
-        if 'data' not in st.session_state:
-            st.session_state.data = {
-                'label': [],
-                'text_inputs': []
-            }
-
         value = streamlit_image_coordinates("https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&fit=crop&q=80&w=300")
             
         
