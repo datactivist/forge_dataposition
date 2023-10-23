@@ -72,11 +72,11 @@ def colorizer_tab():
                 "https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&w=1000",
 
             ],
-            titles=[f"Image #{str(i)}" for i in range(5)],
+            titles=[f"profile #{str(i)}" for i in range(5)],
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
             img_style={"margin": "5px", "height": "400px"},
         )
-        st.markdown(f"Image #{clicked} clicked" if clicked > -1 else "No image clicked")
+        st.markdown(f"The profile #{clicked} in my classification is : " if clicked > -1 else "No image clicked")
 
         
 
