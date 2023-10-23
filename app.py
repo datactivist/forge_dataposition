@@ -71,10 +71,7 @@ def colorizer_tab():
         st.image("resource/position1.png")
         clicked = clickable_images(
             [
-                "resource/position1.png",
-                "resource/position2.png",
-                "resource/position3.png",
-                "resource/position4.png"
+                "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=700"
             ],
             titles=[f"Image #{str(i)}" for i in range(5)],
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
