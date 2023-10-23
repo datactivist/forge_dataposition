@@ -72,7 +72,16 @@ def colorizer_tab():
                 "https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&w=1000",
 
             ],
-            titles=[f"profile #{str(i)}" for i in range(5)],
+            #set a variable that counts the number of clicked images
+            clicked = st.session_state.clicked
+            #count the number of clicked images
+            if not "clicked" in st.session_state:
+                st.session_state.clicked = 0
+            else:
+                st.session_state.clicked += 1
+            
+            #titles equals the number of clicked images
+            titles = [f"Profile #{i}" for i in range(st.session_state.clicked)]
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
             img_style={"margin": "5px", "height": "400px"},
         )
