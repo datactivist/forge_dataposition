@@ -69,8 +69,8 @@ def colorizer_tab():
     with col2:
         clicked = clickable_images(
             [
-                "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=700",
-                "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=700"
+                "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=300",
+                "https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=300"
             ],
             titles=[f"Image #{str(i)}" for i in range(5)],
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
