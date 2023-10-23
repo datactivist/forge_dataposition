@@ -69,8 +69,6 @@ def colorizer_tab():
     with col2:
         if 'data' not in st.session_state:
             st.session_state.data = {
-                'x': [],
-                'y': [],
                 'label': [],
                 'text_inputs': []
             }
@@ -80,8 +78,6 @@ def colorizer_tab():
         for key, value in value.items():
             if key == 'x':
                 text_input = st.text_input(f"Text for x={value}")
-                st.session_state.data['x'].append(value)
-                st.session_state.data['y'].append(value)  # Add a corresponding 'y' value
                 st.session_state.data['label'].append("Label for x={}".format(value))  # Add a label
                 st.session_state.data['text_inputs'].append(text_input)
         
