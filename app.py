@@ -76,7 +76,13 @@ def colorizer_tab():
             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
             img_style={"margin": "5px", "height": "400px"},
         )
-        st.markdown(f"The profile #{clicked} in my classification is : " if clicked > -1 else "No image clicked")
+        if clicked > -1:
+            st.markdown(f"Profile #{clicked} is : ")
+            st.text_input("Enter the profile name")
+            st.text_input("Enter the profile description")
+            st.text_input("Enter the profile image")
+            st.text_input("Enter the profile link")
+            st.text_input("Enter the profile tags")
 
         
 
