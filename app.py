@@ -83,12 +83,6 @@ def colorizer_tab():
                     st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
                     st.session_state.profile['text_inputs'].append(text_input)
                         
-            st.write("List of Text Inputs:")
-            st.write(st.session_state.profile['text_inputs'])
-            #for every value inside st.session_state.profile['text_inputs'], print st.metric
-            for text_display in st.session_state.profile['text_inputs']:
-                st.metric(label="profile", value=text_display)
-
             
             #for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
             cola, colb, colc = st.columns(3)
