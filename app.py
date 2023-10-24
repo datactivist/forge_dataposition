@@ -88,13 +88,16 @@ def colorizer_tab():
             #for every value inside st.session_state.profile['text_inputs'], print st.metric
             for text_display in st.session_state.profile['text_inputs']:
                 st.metric(label="profile", value=text_display)
+
+            
             #for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
+            cola, colb, colc = st.columns(3)
             for text_display in st.session_state.profile['text_inputs']:
-                with col1:
+                with cola:
                     st.metric(label="profile", value=text_display)
-                with col2:
+                with colb:
                     st.metric(label="profile", value=text_display)
-                with col3:
+                with colc:
                     st.metric(label="profile", value=text_display)
             
         
