@@ -67,7 +67,7 @@ def colorizer_tab():
     
     with col2:
         value = streamlit_image_coordinates("https://images.unsplash.com/photo-1560017487-c44f80136c56?auto=format&fit=crop&q=80&w=300")
-        if 'profil' not in st.session_state:
+        if 'profile' not in st.session_state:
             st.session_state.profile = {
                 'x': [],
                 'y': [],
@@ -77,11 +77,11 @@ def colorizer_tab():
         if value is not None:
             for key, value in value.items():
                 if key == 'x':
-                    text_inputs = st.text_input(f"Text for x={value}")
+                    text_input = st.text_input(f"Text for x={value}")
                     st.session_state.profile['x'].append(value)
                     st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
                     st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
-                    st.session_state.profile['text_inputs'].append(text_inputs)
+                    st.session_state.profile['text_inputs'].append(text_input)
                         
             st.write("List of Text Inputs:")
             st.write(st.session_state.profile['text_inputs'])
