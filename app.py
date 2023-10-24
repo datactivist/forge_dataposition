@@ -154,7 +154,7 @@ def dispenser_tab():
             { "taste": "sunny", "chardonay": 19, "carmenere": 94, "syrah": 103 },
             { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 7 },
             { "taste": "sunny", "chardonay": 11, "carmenere": 94, "syrah": 10 },
-            { "taste": "fruity", "chardonay": 3, "carmenere": 61, "syrah": 120 }
+            { "taste": "fruity", "chardonay": 3, "carmenere": 61, "syrah": 120 },
         ]
 
         with mui.Box(sx={"height": 500}):
