@@ -141,10 +141,10 @@ def dispenser_tab():
     with elements("nivo_charts"):
         DATA = [
             { "taste": "fruity", "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
-            { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72 },
-            { "taste": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99 },
-            { "taste": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30 },
-            { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103 }
+            { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
+            { "taste": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99, "flute": 13, "sirop": 10, "coca": 14 },
+            { "taste": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30, "flute": 13, "sirop": 10, "coca": 14 },
+            { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103, "flute": 13, "sirop": 10, "coca": 14 }
         ]
 
         with mui.Box(sx={"height": 500}):
