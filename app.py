@@ -74,17 +74,17 @@ def colorizer_tab():
                 'label': [],
                 'text_inputs': []
             }
-            if value is not None:
-                for key, value in value.items():
-                    if key == 'x':
-                        text_inputs = st.text_input(f"Text for x={value}")
-                        st.session_state.profile['x'].append(value)
-                        st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
-                        st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
-                        st.session_state.profile['text_inputs'].append(text_inputs)
+        if value is not None:
+            for key, value in value.items():
+                if key == 'x':
+                    text_inputs = st.text_input(f"Text for x={value}")
+                    st.session_state.profile['x'].append(value)
+                    st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
+                    st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
+                    st.session_state.profile['text_inputs'].append(text_inputs)
                         
-                st.write("List of Text Inputs:")
-                st.write(st.session_state.profile['text_inputs'])
+            st.write("List of Text Inputs:")
+            st.write(st.session_state.profile['text_inputs'])
             
         
 
