@@ -87,7 +87,7 @@ def colorizer_tab():
             st.write(st.session_state.profile['text_inputs'])
             #for every value inside st.session_state.profile['text_inputs'], print st.metric
             for text_display in st.session_state.profile['text_inputs']:
-                st.metric(label=profile, value=text_display)
+                st.metric(label="profile", value=text_display)
             
         
 
