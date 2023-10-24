@@ -81,7 +81,7 @@ def colorizer_tab():
                         st.session_state.profile['x'].append(value)
                         st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
                         st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
-                        st.session_state.profile['text_inputs'].append(text_input)
+                        st.session_state.profile['text_inputs'].append(text_inputs)
                         
                 st.write("List of Text Inputs:")
                 st.write(st.session_state.data['text_inputs'])
