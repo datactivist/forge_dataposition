@@ -88,36 +88,22 @@ def colorizer_tab():
                 st.session_state.profile['text_inputs'].append(text_input)
         
                 # Check if text_inputs exist and are not empty
-            if st.session_state.profile.get('text_inputs'):
-                # for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
-                cola, colb, colc = st.columns(3)
-                text_inputs = st.session_state.profile['text_inputs']
+                if st.session_state.profile.get('text_inputs'):
+                    # for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
+                    cola, colb, colc = st.columns(3)
+                    text_inputs = st.session_state.profile['text_inputs']
 
-                for i, text_display in enumerate(text_inputs):
-                    if i % 3 == 0:
-                        with cola:
-                            st.metric(label="profile", value=text_display)
-                    elif i % 3 == 1:
-                        with colb:
-                            st.metric(label="profile", value=text_display)
-                    else:
-                        with colc:
-                            st.metric(label="profile", value=text_display)
-                        
-
-            # Loop through the text_inputs and display them in separate columns
-            for i, text_display in enumerate(text_inputs):
-                if i % 3 == 0:
-                    with cola:
-                        st.metric(label="profile", value=text_display)
-                elif i % 3 == 1:
-                    with colb:
-                        st.metric(label="profile", value=text_display)
-                else:
-                    with colc:
-                        st.metric(label="profile", value=text_display)
-            
-        
+                    for i, text_display in enumerate(text_inputs):
+                        if i % 3 == 0:
+                            with cola:
+                                st.metric(label="profile", value=text_display)
+                        elif i % 3 == 1:
+                            with colb:
+                                st.metric(label="profile", value=text_display)
+                        else:
+                            with colc:
+                                st.metric(label="profile", value=text_display)
+                    
 
 def gatherizer_tab():
     st.image('resource/logo_forge.png', width=400, use_column_width=True)
