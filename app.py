@@ -32,17 +32,20 @@ def colorizer_tab():
 
     if 'data' not in st.session_state:
         st.session_state.data = {
+            'profile_type':[],
             'question': [],
             'answer': [],
             'score': []
         }
 
     with col1:
+        profile_type = st.text_input("Profile_type")
         question = st.text_input("Question")
         answer = st.text_input("Possible Answer")
         score = st.selectbox("Profile Score", [1, 2, 3, 4])
 
         if st.button("Add to Google Sheets"):
+            st.session_state.profile['profile_type'].append(profile_type)
             st.session_state.data['question'].append(question)
             st.session_state.data['answer'].append(answer)
             st.session_state.data['score'].append(score)
