@@ -79,8 +79,7 @@ def colorizer_tab():
                 'text_inputs': []
             }
         if value is not None:
-            add_button = st.button("Add to Google Sheets", key=f"profile_pro_{value}")
-            if add_button:
+            if st.button("Coucou", key=f"profile_pro_{value}") :
                 text_input = st.text_input(f"Text for x={value}")
                 st.session_state.profile['x'].append(value)
                 st.session_state.profile['y'].append(value)
