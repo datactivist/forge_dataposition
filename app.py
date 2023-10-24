@@ -81,7 +81,7 @@ def colorizer_tab():
             }
         if value is not None:
             for key, value in value.items():
-                if st.button("Add to Google Sheets", key="profile_name"):
+                if st.button("Add to Google Sheets", key="profile_pro"):
                     text_input = st.text_input(f"Text for x={value}")
                     st.session_state.profile['x'].append(value)
                     st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
