@@ -23,7 +23,6 @@ menu_data = [
 if 'selected_tab' not in st.session_state:
     st.session_state.selected_tab = "Colorizer"
 
-button_counter = 0
 def colorizer_tab():
     st.title("Colorizer Tab")
     st.write("Add Questions and Answers to Google Sheets")
@@ -80,34 +79,30 @@ def colorizer_tab():
                 'text_inputs': []
             }
         if value is not None:
-            for key, value in value.items():
-                # Define a counter in your script to generate unique keys
-                global button_counter
-                if st.button("Add to Google Sheets", key=f"profile_pro_{button_counter}"):
-                    text_input = st.text_input(f"Text for x={value}")
-                    st.session_state.profile['x'].append(value)
-                    st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
-                    st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
-                    st.session_state.profile['text_inputs'].append(text_input)
-                    button_counter += 1
-                else:
-                    text_input = ''
+            add_button = st.button("Add to Google Sheets", key=f"profile_pro_{value}")
+            if add_button:
+                text_input = st.text_input(f"Text for x={value}")
+                st.session_state.profile['x'].append(value)
+                st.session_state.profile['y'].append(value)
+                st.session_state.profile['label'].append("Label for x={}".format(value))
+                st.session_state.profile['text_inputs'].append(text_input)
+        
                 # Check if text_inputs exist and are not empty
-                if st.session_state.profile.get('text_inputs'):
-                    # for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
-                    cola, colb, colc = st.columns(3)
-                    text_inputs = st.session_state.profile['text_inputs']
+            if st.session_state.profile.get('text_inputs'):
+                # for every value inside st.session_state.profile['text_inputs'], print st.metric inside each column equally
+                cola, colb, colc = st.columns(3)
+                text_inputs = st.session_state.profile['text_inputs']
 
-                    for i, text_display in enumerate(text_inputs):
-                        if i % 3 == 0:
-                            with cola:
-                                st.metric(label="profile", value=text_display)
-                        elif i % 3 == 1:
-                            with colb:
-                                st.metric(label="profile", value=text_display)
-                        else:
-                            with colc:
-                                st.metric(label="profile", value=text_display)
+                for i, text_display in enumerate(text_inputs):
+                    if i % 3 == 0:
+                        with cola:
+                            st.metric(label="profile", value=text_display)
+                    elif i % 3 == 1:
+                        with colb:
+                            st.metric(label="profile", value=text_display)
+                    else:
+                        with colc:
+                            st.metric(label="profile", value=text_display)
                         
 
             # Loop through the text_inputs and display them in separate columns
