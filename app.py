@@ -78,10 +78,10 @@ def colorizer_tab():
                 for key, value in value.items():
                     if key == 'x':
                         text_input = st.text_input(f"Text for x={value}")
-                        st.session_state.data['x'].append(value)
-                        st.session_state.data['y'].append(value)  # Add a corresponding 'y' value
-                        st.session_state.data['label'].append("Label for x={}".format(value))  # Add a label
-                        st.session_state.data['text_inputs'].append(text_input)
+                        st.session_state.profile['x'].append(value)
+                        st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
+                        st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
+                        st.session_state.profile['text_inputs'].append(text_input)
                         
                 st.write("List of Text Inputs:")
                 st.write(st.session_state.data['text_inputs'])
