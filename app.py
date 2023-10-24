@@ -85,6 +85,7 @@ def colorizer_tab():
                         
             st.write("List of Text Inputs:")
             st.write(st.session_state.profile['text_inputs'])
+            st.metric(label="Profile", value=st.session_state.profile['text_inputs'])
             
         
 
