@@ -140,21 +140,11 @@ def dispenser_tab():
     st.title("Dispenser Tab")
     with elements("nivo_charts"):
         DATA = [
-            { "taste": "fruity", "chardonay": 93, "carmenere": 61, "syrah": 114 },
+            { "taste": "fruity", "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "syrah": 14 },
             { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72 },
             { "taste": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99 },
             { "taste": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30 },
-            { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103 },
-            { "taste": "sunny", "chardonay": 19, "carmenere": 94, "syrah": 103 },
-            { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72 },
-            { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103 },
-            { "taste": "fruity", "chardonay": 13, "carmenere": 61, "syrah": 120 },
-            { "taste": "strong", "chardonay": 4, "carmenere": 90, "syrah": 30 },
-            { "taste": "sunny", "chardonay": 19, "carmenere": 94, "syrah": 103 },
-            { "taste": "sunny", "chardonay": 19, "carmenere": 94, "syrah": 103 },
-            { "taste": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 7 },
-            { "taste": "sunny", "chardonay": 11, "carmenere": 94, "syrah": 10 },
-            { "taste": "fruity", "chardonay": 3, "carmenere": 61, "syrah": 120 },
+            { "taste": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103 }
         ]
 
         with mui.Box(sx={"height": 500}):
