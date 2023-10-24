@@ -81,12 +81,15 @@ def colorizer_tab():
             }
         if value is not None:
             for key, value in value.items():
-                if st.button("Add to Google Sheets", key="profile_pro"):
+                # Define a counter in your script to generate unique keys
+                button_counter = 0
+                if st.button("Add to Google Sheets", key=f"profile_pro_{button_counter}"):
                     text_input = st.text_input(f"Text for x={value}")
                     st.session_state.profile['x'].append(value)
                     st.session_state.profile['y'].append(value)  # Add a corresponding 'y' value
                     st.session_state.profile['label'].append("Label for x={}".format(value))  # Add a label
                     st.session_state.profile['text_inputs'].append(text_input)
+                    button_counter += 1
                 else:
                     text_input = ''
                 # Check if text_inputs exist and are not empty
