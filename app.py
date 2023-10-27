@@ -176,7 +176,7 @@ def dispenser_tab():
                 valueFormat=">-.2f",
                 curve="linearClosed",
                 margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
-                borderColor={ "from": "color" },
+                borderColor={ "theme": "grid.line.stroke" },
                 gridLabelOffset=36,
                 dotSize=8,
                 dotColor={ "theme": "background" },
