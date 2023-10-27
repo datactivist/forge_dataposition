@@ -174,6 +174,7 @@ def dispenser_tab():
                 indexBy="profile",
                 maxValue = 4,
                 valueFormat=">-.2f",
+                curve="linearClosed",
                 margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
                 borderColor={ "from": "color" },
                 gridLabelOffset=36,
