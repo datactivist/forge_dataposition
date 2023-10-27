@@ -218,7 +218,7 @@ def dispenser_tab():
     #create a df that is form_data df but group by name
     form_data = form_data[form_data['score'].notna()]
     form_data['score'] = form_data['score'].str.strip('[]').astype(int)
-    form_data_grouped = form_data.groupby(['nom', 'prenom'])['score'].mean().reset_index()
+    form_data_grouped = form_data.groupby(['nom', 'prenom']).agg(score_mean=('score', 'mean')).reset_index()
     form_data_grouped['group'] = pd.NA
     groups = st.data_editor(
         form_data_grouped,
