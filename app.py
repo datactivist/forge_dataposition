@@ -220,7 +220,19 @@ def dispenser_tab():
     form_data['score'] = form_data['score'].str.strip('[]').astype(int)
     form_data_grouped = form_data.groupby(['nom', 'prenom'])['score'].mean().reset_index()
     form_data_grouped['group'] = pd.NA
-    groups = st.data_editor(form_data_grouped)
+    groups = st.data_editor(
+        form_data_grouped,
+        column_config={
+            "group": st.column_config.NumberColumn(
+                "Group",
+                help="What group",
+                min_value=1,
+                max_value=10,
+                step=1,
+                format="%d 👭",
+        )
+        }
+    )
     st.dataframe(groups)
     st.write(st.session_state)
     
