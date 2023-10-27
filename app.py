@@ -236,9 +236,7 @@ def dispenser_tab():
     )
     st.dataframe(groups)
     st.write(st.session_state)
-    
-    if st.button("Add", key=10):
-        conn.update(worksheet="Dispenser", data=groups)
+    conn.update(worksheet="Dispenser", data=groups)
         
 
 
