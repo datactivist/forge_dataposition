@@ -237,7 +237,7 @@ def dispenser_tab():
     st.dataframe(groups)
     st.write(st.session_state)
     
-    if st.button("Add to Google Sheets", key=10):
+    if st.button("Add", key=10):
         conn.update(worksheet="Dispenser", data=groups)
         
 
