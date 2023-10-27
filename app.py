@@ -153,7 +153,7 @@ def dispenser_tab():
         with mui.Box(sx={"height": 500}):
             nivo.Radar(
                 data=DATA,
-                keys=[ "chardonay", "carmenere", "syrah", "jeanne","arthur","julie"],
+                keys=[ "michel","francine","hector","jeanne","arthur","julie"],
                 indexBy="profile",
                 valueFormat=">-.2f",
                 margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
