@@ -192,6 +192,8 @@ def dispenser_tab():
                     }
                 }
             )
+    form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score"],ttl=0, nrows=10)
+    st.dataframe(form_data)
     st.write(st.session_state)
 
 
