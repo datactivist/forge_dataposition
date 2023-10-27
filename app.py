@@ -142,13 +142,30 @@ def dispenser_tab():
     st.title("Dispenser Tab")
     with elements("nivo_charts"):
         form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score","profile_type"],ttl=0, nrows=10) 
-        DATA = [
-            { "profile": form_data.profile_type.unique()[0], "michel": 93, "francine": 61, "hector": 114, "jeanne": 13, "arthur": 10, "julie": 14 },
-            { "profile": form_data.profile_type.unique()[1], "michel": 91, "francine": 37, "hector": 72, "jeanne": 13, "arthur": 10, "julie": 14 },
-            { "profile": form_data.profile_type.unique()[2], "michel": 56, "francine": 95, "hector": 99, "jeanne": 13, "arthur": 10, "julie": 14 },
-            { "profile": form_data.profile_type.unique()[3], "michel": 64, "francine": 90, "hector": 30, "jeanne": 13, "arthur": 10, "julie": 14 },
-            { "profile": form_data.profile_type.unique()[4], "michel": 119, "francine": 94, "hector": 103, "jeanne": 13, "arthur": 10, "julie": 14 }
-        ]
+        # Obtenez les valeurs uniques de la colonne "nom"
+        unique_noms = form_data['nom'].unique()
+
+        # Créez la structure de données DATA
+        DATA = []
+
+        # Pour chaque profil unique, créez un dictionnaire
+        for profile_type in form_data['profile_type'].unique():
+            profile_data = {"profile": profile_type}
+
+            # Parcourez les noms uniques
+            for nom in unique_noms:
+                # Filtrer le DataFrame pour obtenir les lignes correspondant au nom et profil
+                filtered_data = form_data[(form_data['nom'] == nom) & (form_data['profile_type'] == profile_type)]
+        
+                # Vérifiez s'il y a des données pour le nom et le profil actuels
+                if not filtered_data.empty:
+                    score = filtered_data['score'].values[0]
+                    profile_data[nom] = score
+
+            DATA.append(profile_data)
+
+        # Affichez la liste DATA
+        st.write(DATA)
 
         with mui.Box(sx={"height": 500}):
             nivo.Radar(
