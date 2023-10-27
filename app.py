@@ -133,8 +133,7 @@ def gatherizer_tab():
         df_answers = df_answers.append(df, ignore_index=True)
 
         st.dataframe(df)
-        if st.button("Add to Google Sheets", key=1):
-            conn.update(worksheet="Gatherizer", data=df_answers)
+        conn.update(worksheet="Gatherizer", data=df_answers)
     # Now, outside the loop, you can display the complete df_answers DataFrame
     st.dataframe(df_answers)
     
