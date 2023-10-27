@@ -216,6 +216,7 @@ def dispenser_tab():
             )
     
     #create a df that is form_data df but group by name
+    form_data['score'] = form_data['score'].str.strip('[]').astype(int)
     form_data_grouped = form_data.groupby(['nom', 'prenom','profile_type'])['score'].mean().reset_index()
     st.data_editor(form_data_grouped)
     st.dataframe(form_data)
