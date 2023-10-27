@@ -222,7 +222,6 @@ def dispenser_tab():
     form_data_grouped['group'] = pd.NA
     groups = st.data_editor(form_data_grouped)
     st.dataframe(groups)
-    st.dataframe(form_data_grouped)
     st.write(st.session_state)
     
     if st.button("Add to Google Sheets"):
