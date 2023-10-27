@@ -139,6 +139,7 @@ def gatherizer_tab():
 def dispenser_tab():
     st.title("Dispenser Tab")
     with elements("nivo_charts"):
+        form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score"],ttl=0, nrows=10) 
         DATA = [
             { "profile": "analyst", "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
             { "profile": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
@@ -192,7 +193,6 @@ def dispenser_tab():
                     }
                 }
             )
-    form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score"],ttl=0, nrows=10)
     st.dataframe(form_data)
     st.write(st.session_state)
 
