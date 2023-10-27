@@ -216,8 +216,7 @@ def dispenser_tab():
             )
     
     #create a df that is form_data df but group by name
-    dispenser_data = form_data.groupby(['nom','prenom','mail'])
-    st.data_editor(dispenser_data)
+    st.data_editor(form_data)
     st.dataframe(form_data)
     st.write(st.session_state)
 
