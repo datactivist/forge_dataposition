@@ -177,7 +177,7 @@ def dispenser_tab():
                 margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
                 borderColor={ "from": "color" },
                 gridLabelOffset=36,
-                dotSize=1,
+                dotSize=5,
                 dotColor={ "theme": "background" },
                 dotBorderWidth=2,
                 motionConfig="wobbly",
