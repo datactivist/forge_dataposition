@@ -50,7 +50,7 @@ def colorizer_tab():
             st.session_state.data['answer'].append(answer)
             st.session_state.data['score'].append(score)
             # Combine the existing data from Google Sheets and new data
-            existing_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
+            existing_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score","profile_type"],ttl=0, nrows=10)
             existing_df = pd.DataFrame(existing_data)
             st.write("Existing Data:")
             st.dataframe(existing_df)
@@ -141,11 +141,11 @@ def dispenser_tab():
     with elements("nivo_charts"):
         form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score"],ttl=0, nrows=10) 
         DATA = [
-            { "profile": form_data.nom.unique()[0], "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": "sunny", "chardonay": 119, "carmenere": 94, "syrah": 103, "flute": 13, "sirop": 10, "coca": 14 }
+            { "profile": form_data.profile_type.unique()[0], "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
+            { "profile": form_data.profile_type.unique()[1], "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
+            { "profile": form_data.profile_type.unique()[2], "chardonay": 56, "carmenere": 95, "syrah": 99, "flute": 13, "sirop": 10, "coca": 14 },
+            { "profile": form_data.profile_type.unique()[3], "chardonay": 64, "carmenere": 90, "syrah": 30, "flute": 13, "sirop": 10, "coca": 14 },
+            { "profile": form_data.profile_type.unique()[4], "chardonay": 119, "carmenere": 94, "syrah": 103, "flute": 13, "sirop": 10, "coca": 14 }
         ]
 
         with mui.Box(sx={"height": 500}):
