@@ -143,17 +143,17 @@ def dispenser_tab():
     with elements("nivo_charts"):
         form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score","profile_type"],ttl=0, nrows=10) 
         DATA = [
-            { "profile": form_data.profile_type.unique()[0], "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": form_data.profile_type.unique()[1], "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": form_data.profile_type.unique()[2], "chardonay": 56, "carmenere": 95, "syrah": 99, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": form_data.profile_type.unique()[3], "chardonay": 64, "carmenere": 90, "syrah": 30, "flute": 13, "sirop": 10, "coca": 14 },
-            { "profile": form_data.profile_type.unique()[4], "chardonay": 119, "carmenere": 94, "syrah": 103, "flute": 13, "sirop": 10, "coca": 14 }
+            { "profile": form_data.profile_type.unique()[0], "michel": 93, "francine": 61, "hector": 114, "jeanne": 13, "arthur": 10, "julie": 14 },
+            { "profile": form_data.profile_type.unique()[1], "michel": 91, "francine": 37, "hector": 72, "jeanne": 13, "arthur": 10, "julie": 14 },
+            { "profile": form_data.profile_type.unique()[2], "michel": 56, "francine": 95, "hector": 99, "jeanne": 13, "arthur": 10, "julie": 14 },
+            { "profile": form_data.profile_type.unique()[3], "michel": 64, "francine": 90, "hector": 30, "jeanne": 13, "arthur": 10, "julie": 14 },
+            { "profile": form_data.profile_type.unique()[4], "michel": 119, "francine": 94, "hector": 103, "jeanne": 13, "arthur": 10, "julie": 14 }
         ]
 
         with mui.Box(sx={"height": 500}):
             nivo.Radar(
                 data=DATA,
-                keys=[ "chardonay", "carmenere", "syrah", "flute","sirop","coca"],
+                keys=[ "chardonay", "carmenere", "syrah", "jeanne","arthur","julie"],
                 indexBy="profile",
                 valueFormat=">-.2f",
                 margin={ "top": 70, "right": 80, "bottom": 40, "left": 80 },
