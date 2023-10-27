@@ -223,6 +223,10 @@ def dispenser_tab():
     st.data_editor(form_data_grouped)
     st.dataframe(form_data)
     st.write(st.session_state)
+    
+    if st.button("Add to Google Sheets"):
+        conn.update(worksheet="Dispenser", data=form_data_grouped)
+        
 
 
 
