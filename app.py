@@ -159,7 +159,7 @@ def dispenser_tab():
         
                 # Vérifiez s'il y a des données pour le nom et le profil actuels
                 if not filtered_data.empty:
-                    score = filtered_data['score'].values[0]
+                    score = int(filtered_data['score'].str.strip('[]').values[0])
                     profile_data[nom] = score
 
             DATA.append(profile_data)
