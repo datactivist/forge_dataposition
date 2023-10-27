@@ -116,24 +116,25 @@ def gatherizer_tab():
     question_df = pd.DataFrame(question_data)
     st.write(question_df.profile_type.values)
     unique_questions = question_df.question.unique()
-    
     nom = st.text_input("Nom", key='nom')
     prenom = st.text_input("Prenom", key='prenom')
     mail = st.text_input("Mail", key='mail')
     #append the values of the inputs to the df_answers
     df_answers = df_answers.append({'nom': nom, 'prenom': prenom, 'mail': mail}, ignore_index=True)
-    
-    for question_people in unique_questions:
-        st.write(question_people)
-        answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer, index=None)
-        score = question_df[question_df.answer == answer_people].score.values
-        profile_type_val = question_df[question_df.answer == answer_people].profile_type.values
-        df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people],'score': [score],'profile_type':[profile_type_val]})
-        # Append the data to the df_answers DataFrame
-        df_answers = df_answers.append(df, ignore_index=True)
 
-        st.dataframe(df)
-        conn.update(worksheet="Gatherizer", data=df_answers)
+    if st.button("Add"):
+        for question_people in unique_questions:
+            st.write(question_people)
+            answer_people = st.selectbox("Answers", question_df[question_df.question == question_people].answer, index=None)
+            score = question_df[question_df.answer == answer_people].score.values
+            profile_type_val = question_df[question_df.answer == answer_people].profile_type.values
+            df = pd.DataFrame({'nom': [nom], 'prenom': [prenom], 'mail': [mail],'question': [question_people], 'answer': [answer_people],'score': [score],'profile_type':[profile_type_val]})
+            # Append the data to the df_answers DataFrame
+            df_answers = df_answers.append(df, ignore_index=True)
+
+            st.dataframe(df)
+            conn.update(worksheet="Gatherizer", data=df_answers)
+    
     # Now, outside the loop, you can display the complete df_answers DataFrame
     st.dataframe(df_answers)
     
