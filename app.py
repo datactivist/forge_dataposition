@@ -110,7 +110,7 @@ def gatherizer_tab():
     st.title("Gatherizer Tab")
     st.markdown("Gatherizer Tab")
     #create an empty dataframe
-    df_answers = pd.DataFrame(columns=['nom', 'prenom', 'mail', 'question', 'answer', 'score'])
+    df_answers = pd.DataFrame(columns=['nom', 'prenom', 'mail', 'question', 'answer', 'score','profile_type'])
     # Add content for the form
     question_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score"],ttl=0, nrows=10)
     question_df = pd.DataFrame(question_data)
