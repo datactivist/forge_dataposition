@@ -44,7 +44,7 @@ def colorizer_tab():
         answer = st.text_input("Possible Answer")
         score = st.selectbox("Profile Score", [1, 2, 3, 4])
 
-        if st.button("Add to Google Sheets"):
+        if st.button("Add to Google Sheets", key=8):
             st.session_state.data['profile_type'].append(profile_type)
             st.session_state.data['question'].append(question)
             st.session_state.data['answer'].append(answer)
@@ -237,7 +237,7 @@ def dispenser_tab():
     st.dataframe(groups)
     st.write(st.session_state)
     
-    if st.button("Add to Google Sheets"):
+    if st.button("Add to Google Sheets", key=10):
         conn.update(worksheet="Dispenser", data=groups)
         
 
