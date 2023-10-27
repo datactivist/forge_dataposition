@@ -114,6 +114,7 @@ def gatherizer_tab():
     # Add content for the form
     question_data = conn.read(worksheet="Colorizer", usecols=["question","answer","score","profile_type"],ttl=0, nrows=10)
     question_df = pd.DataFrame(question_data)
+    st.dataframe(question_df)
     unique_questions = question_df.question.unique()
     
     nom = st.text_input("Nom", key='nom')
