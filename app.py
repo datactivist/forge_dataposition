@@ -141,7 +141,7 @@ def dispenser_tab():
     with elements("nivo_charts"):
         form_data = conn.read(worksheet="Gatherizer", usecols=["nom","prenom","mail","question","answer","score"],ttl=0, nrows=10) 
         DATA = [
-            { "profile": "analyst", "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
+            { "profile": form_data.nom.unique()[0], "chardonay": 93, "carmenere": 61, "syrah": 114, "flute": 13, "sirop": 10, "coca": 14 },
             { "profile": "bitter", "chardonay": 91, "carmenere": 37, "syrah": 72, "flute": 13, "sirop": 10, "coca": 14 },
             { "profile": "heavy", "chardonay": 56, "carmenere": 95, "syrah": 99, "flute": 13, "sirop": 10, "coca": 14 },
             { "profile": "strong", "chardonay": 64, "carmenere": 90, "syrah": 30, "flute": 13, "sirop": 10, "coca": 14 },
